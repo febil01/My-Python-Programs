@@ -49,3 +49,12 @@ print("List \"Monitors\" in lower case:",lowerMonitors)
 print("List \"Monitors\" in UPPER CASE:",upperMonitors)
 Monitors.insert(0,"LG") # To place items in a particular index
 print(Monitors)
+Monitors.remove("Sony")
+print(Monitors)
+del Monitors[0]
+print(Monitors)
+Monitors.pop(3)
+print(Monitors)
+del Monitors[Monitors.index("Acer"):Monitors.index("Acer")+2]
+del Monitors[0:2]
+print(Monitors)
