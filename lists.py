@@ -38,3 +38,14 @@ print("Sony occurs",Monitors.count("Sony"),'times in the list "Monitors"')
 print("Sony" in Monitors)
 setMonitors=[str(Monitors.count(item)) + " " + item for item in set(Monitors)]
 print(setMonitors)
+lowerMonitors=[]
+upperMonitors=[]
+print(Monitors)
+print("Printing List Monitors",Monitors)
+for item in Monitors:
+    lowerMonitors.append(item.lower())
+    upperMonitors.append(item.upper())
+print("List \"Monitors\" in lower case:",lowerMonitors)
+print("List \"Monitors\" in UPPER CASE:",upperMonitors)
+Monitors.insert(0,"LG") # To place items in a particular index
+print(Monitors)
