@@ -9,4 +9,4 @@ try:
     print("Printing all the items in the list...")
     print(list)
 except Exception as e:
-    print(e)
+    print(e)    print(e)

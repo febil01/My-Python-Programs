@@ -11,6 +11,11 @@ print("New list after adding an item using append:",languages)
 # Appending multiple items in the list using extend
 languages.extend(["CSS","xml"])
 # Printing the list after extending it 
+
+#Printing the index and the item in a list
+for item in languages:
+    print(f"languages[{languages.index(item)}]:",item)
+
 print('New list after multiple items using extend:',languages)
 print('The value of the first item in the list is',languages[0]) # printing a single item in the list using its index or position
 print('The value of the last item in the list is',languages[-1]) # Prints the last element or item in the list 
@@ -78,3 +83,11 @@ print(Monitors)
 del Monitors[Monitors.index("Acer"):Monitors.index("Acer")+2] # To delete items from a range of index
 del Monitors[0:2]
 print(Monitors)
+
+MonitorsCopy = Monitors[:] #Saving a copy of list using slicing 
+print("The id of the list \"Monitors\" is",id(Monitors),"and the id of the list \"MonitorsCopy\" is",id(MonitorsCopy)) #Prints the id of both the list
+
+MonitorsCopy[:]=["1","2","3"] #Retains the ID of the list
+print(id(MonitorsCopy))
+MonitorsCopy = ["1","2","3"] #Does not retain the ID of the list and creates a brand new list 
+print(id(Monitors))
