@@ -12,3 +12,11 @@ temp=a
 a=b
 b=temp
 print("Values after swapping:",a,b)
+
+#Swapping in list
+fruits=["Strawberry","Mango","kiwi","Apple","Orange","Watermelon"]
+index=0
+print("List before swapping",fruits)
+for index in range(len(fruits) // 2):
+    fruits[index],fruits[-index-1] = fruits[-index-1],fruits[index]
+print("List after swapping",fruits)
