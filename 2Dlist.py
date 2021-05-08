@@ -42,3 +42,19 @@ print("2D List iteration using method 1:")
 method1_2D(list)
 print("\n2D List iteration using method 2")
 method2_2D(list)
+
+#Sorting 2D lists
+listSort=[[23,34,341,213],[10,11,4,'bye','hi'],[12]]
+print("The 2D list before sorting:",listSort)
+print("The 2D list after sorting:")
+print(sorted(listSort))
+
+#Different ways to sort a 2D list
+listScores=[[6,4,2,1],[6,6,1,2],[2,5,4,3,4,1],[6,1,6,2,6,6,6,6,3]]
+
+print(sorted(listScores,key=sum)) #Sort based on the sum of each list
+
+def avg(listScores):
+    return sum(listScores) / len(listScores)
+
+print(sorted(listScores,key=avg)) #Sort based on the average of each list
