@@ -47,7 +47,6 @@ def validateSeat(seatList,seatingDict):
         return True
     return False    
 
-
 def displayTickets(seatingDict):
     for key,value in seatingDict.items():
         print(key,":",value)
@@ -60,6 +59,15 @@ def cancelTicket(seatingDict,seatNo):
     print("Invalid seat entered..")
     return seatingDict
 
+def addSeats(addSeat,seatingDict):
+    i=1
+    while(i<=addSeat):
+        add=input("Enter the Seat number to be added:")
+        seatingDict[add]="vacant"
+        i=i+1
+    print("All the Seat(s) have been added...")
+    return seatingDict
+    
 seatingDict={
     "s1":"vacant",
     "s2":"vacant",
@@ -75,17 +83,23 @@ countbooked=0
 countvacant=0
 while True:
     print("++++++++++++MOVIE BOOKING++++++++++++")
-    print("1. BOOK A TICKET")
-    print("2. DISPLAY ALL SEATS")
-    print("3. CANCEL A TICKET")
-    print("4. EXIT THE PROGRAM")
-    choice=int(input("Enter your choice(1-4):"))
+    print("1. ADD ADDITIONAL SEATS")
+    print("2. BOOK A TICKET")
+    print("3. DISPLAY ALL SEATS")
+    print("4. CANCEL A TICKET")
+    print("5. EXIT THE PROGRAM")
+    choice=int(input("Enter your choice(1-5):"))
     if choice==1:
-        seatingDict=bookTickets(seatingDict)
+        addSeat=int(input("Enter the number of seats to be added:"))
+        seatingDict=addSeats(addSeat,seatingDict)
     elif choice==2:
-        displayTickets(seatingDict)
+        seatingDict=bookTickets(seatingDict)
     elif choice==3:
+        displayTickets(seatingDict)
+    elif choice==4:
         seatNo=input("Enter the seat number:")
         cancelTicket(seatingDict,seatNo)
-    elif choice==4:
+    elif choice==5:
         exit()
+    else:
+        print("Invalid choice entered please try again.....")
