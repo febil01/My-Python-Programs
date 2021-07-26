@@ -7,16 +7,46 @@ def checkSeats(seatingDict):
 
 def bookTickets(seatingDict):
     tickets=int(input("Enter the number of tickets:"))
-    countvacant=checkSeats(seatingDict)   
+    seatList=[]
+    i=0
+    seatList=assignSeats(seatingDict,tickets)
+    countvacant=checkSeats(seatingDict)
+    if(not validateSeat(seatList,seatingDict)):
+        print("Invalid Seat(s) Entered. Please try adding it again with valid seat numbers....")
+        return seatingDict
     if tickets>countvacant:
         print(tickets,"tickets are not available......")
         return seatingDict
     print(tickets,"tickets have been booked...")
-    for key,elem in seatingDict.items():
-        if elem == "vacant" and tickets>0:
-            seatingDict[key]="booked"
-            tickets=tickets-1
+    for i in range(len(seatList)):
+            seatingDict[seatList[i]]="booked"
+            i=i+1
     return seatingDict
+
+def assignSeats(seatingDict,tickets):
+    seatList=[]
+    print("List of available seats:")
+    i=1
+    for key,elem in seatingDict.items():
+        if elem == "vacant":
+            print(key,"---->",elem)
+    print("Enter the list of seats to be booked (Press Enter after every seat):")
+    while (i<=tickets):
+        seatList.append(input())
+        i=i+1
+    return seatList
+
+def validateSeat(seatList,seatingDict):
+    check=0
+    for i in seatingDict:
+        for j in seatList:
+            if j == i:
+                check=check+1
+                break
+    if check==len(seatList):
+        return True
+    return False    
+
 
 def displayTickets(seatingDict):
     for key,value in seatingDict.items():
@@ -29,7 +59,7 @@ def cancelTicket(seatingDict,seatNo):
         return seatingDict
     print("Invalid seat entered..")
     return seatingDict
-    
+
 seatingDict={
     "s1":"vacant",
     "s2":"vacant",
