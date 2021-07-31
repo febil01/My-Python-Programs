@@ -5,10 +5,6 @@ class Book():
         self.title=title
         self.pages=pages
 
-    def is_short(self):
-        if self.pages < 100:
-            return True
-
     def __str__(self):
         return f"{self.title}, {self.pages} pages long"
 
